@@ -138,6 +138,4 @@ public interface IDatasourceManager {
   String[] getAvailablePropertiesKeys();
 
   List<JujuSource> getJujuDatasources();
-  
-  String getType();
 }

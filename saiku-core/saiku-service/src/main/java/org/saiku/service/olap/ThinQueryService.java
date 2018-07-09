@@ -455,9 +455,9 @@ public class ThinQueryService implements Serializable {
                 filterHierarchies = tq.getQueryModel().getAxes().get(AxisLocation.FILTER).getHierarchies();
             }
 
-            if (type.equalsIgnoreCase("xls")) {
+            if (type.toLowerCase().equals("xls")) {
                 return ExcelExporter.exportExcel(table, formatter, filterHierarchies);
-            } else if (type.equalsIgnoreCase("csv")) {
+            } else if (type.toLowerCase().equals("csv")) {
                 return CsvExporter.exportCsv(rs, SaikuProperties.webExportCsvDelimiter, SaikuProperties.webExportCsvTextEscape, formatter);
             }
         }
@@ -845,16 +845,10 @@ public class ThinQueryService implements Serializable {
                     QueryHierarchy qh = query.getHierarchy(m.getHierarchy());
                     if (qh.getHierarchy().getDimension().getName().equals("Measures")) {
                         Measure measure = query.getMeasure(m.getName());
-                        boolean contains = false;
-                        for (Measure existMeasure : query.getDetails().getMeasures()) {
-                            if (existMeasure.getUniqueName().equals(measure.getUniqueName())) {
-                                contains = true;
-                                break;
-                            }
-                        }
-                        if (!contains) {
+                        if (!query.getDetails().getMeasures().contains(measure)) {
                             query.getDetails().add(measure);
                         }
+
                     } else {
                         qh.clearSelection();
                         qh.clearFilters();

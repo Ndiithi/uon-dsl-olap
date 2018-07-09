@@ -1,16 +1,16 @@
 {
   "steps": [
     {
-      "element": "#save_query_form .search_file",
+      "element": ".search_file",
       "intro": "Enter a name here from a saiku file"
     },
     {
-      "element": "#save_query_form .RepositoryObjects",
+      "element": ".RepositoryObjects",
       "intro": "Select a folder to save the file",
       "position": "right"
     },
     {
-      "element": "#save_query_form #relative-file-path",
+      "element": "#relative-file-path",
       "intro": "Path where your file will be saved",
       "position": "right"
     },

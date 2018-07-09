@@ -20,14 +20,13 @@ module.exports = {
   nodeProxy: {
     protocol: 'http',
     hostname: 'localhost',
-    port: '9999'
+    port: '9099'
   },
 
   browserSync: {
     html: './**/*.html',
-    cssBase: './css/**/*.css',
-    cssSaiku: './js/saiku/**/*.css',
-    js: './js/saiku/**/*.js',
+    css: './css/**/*.css',
+    js: './js/**/*.js',
     img: './images/**/*'
   }
 };

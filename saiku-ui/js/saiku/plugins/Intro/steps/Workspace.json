@@ -10,13 +10,8 @@
       "position": "right"
     },
     {
-      "element": ".admin",
+      "element": "#admin_icon",
       "intro": "Click here for Administration functions",
-      "position": "right"
-    },
-    {
-      "element": ".dashboards",
-      "intro": "Click here for Dashboard Designer",
       "position": "right"
     },
     {
@@ -30,13 +25,13 @@
       "position": "right"
     },
     {
-      "element": ".metadata_attribute_wrapper",
+      "element": ".metadata_attribute_container",
       "intro": "This is your list of available measures and dimensions",
       "position": "right"
     },
     {
-      "element": ".button.sprite.open",
-      "intro": "Click here to open a query",
+      "element": "#new_icon",
+      "intro": "Click here for a blank query",
       "position": "right"
     },
     {
@@ -45,23 +40,13 @@
       "position": "right"
     },
     {
-      "element": ".button.sprite.new",
-      "intro": "Click here to new query",
-      "position": "right"
-    },
-    {
       "element": "#edit_icon",
       "intro": "Click here to switch between edit and view mode",
       "position": "right"
     },
     {
-      "element": ".button.sprite.run",
-      "intro": "Click here to run query",
-      "position": "right"
-    },
-    {
       "element": "#run_icon",
-      "intro": "Click here to automatic execution",
+      "intro": "Click the run icon to execute the query",
       "position": "right"
     },
     {

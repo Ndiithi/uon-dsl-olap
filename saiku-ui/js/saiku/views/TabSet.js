@@ -104,10 +104,7 @@ var TabSet = Backbone.View.extend({
 				this.pager.render();
 				// Select the previous, or first tab
 				var next = this._tabs[i] ? i : (this._tabs.length - 1);
-
-				if (this._tabs[next]) {
-					this._tabs[next].select();
-				}
+				this._tabs[next].select();
 			}
 		}
 

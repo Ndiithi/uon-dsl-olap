@@ -1,4 +1,4 @@
-/*  
+/*
  *   Copyright 2012 OSBI Ltd
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,23 +13,23 @@
  *   See the License for the specific language governing permissions and
  *   limitations under the License.
  */
- 
+
 /**
  * Node.js proxy for Saiku
  *
  * Use this proxy to develop for the UI without having to install the server.
  * Requests will be proxied to try.meteorite.bi,
  * or a Saiku server installation of your choice.
- * 
+ *
  * To play with the chaos monkey, set the CHAOS_MONKEY environment variable
  * to anything (Preferably a nice name for your chaos monkey).
- * 
+ *
  * To start the server in HTTP mode,
  * run `node server.js [port] [backend_host] [backend_port]`
  *
- * To start the server in HTTPS mode, you will need generate a self-signed 
+ * To start the server in HTTPS mode, you will need generate a self-signed
  * certificate, run the following commands in your shell:
- * 
+ *
  * $ [sudo] openssl genrsa -out key.pem
  * $ [sudo] openssl req -new -key key.pem -out csr.pem
  * $ [sudo] openssl x509 -req -days 9999 -in csr.pem -signkey key.pem -out cert.pem
@@ -99,7 +99,7 @@ function get_from_proxy(request, response) {
     };
 
     console.log(options.method, options.path);
-    
+
     var proxy_request = http.request(options);
     request.addListener('data', function(chunk) {
         proxy_request.write(chunk, 'binary');
@@ -107,15 +107,15 @@ function get_from_proxy(request, response) {
     request.addListener('end', function() {
         proxy_request.end();
     });
-    
+
     proxy_request.addListener('error', function (error) {
         console.log('ERROR:', error);
-    });    
+    });
     proxy_request.addListener('response', function (proxy_response) {
         proxy_response.addListener('data', function(chunk) {
             response.write(chunk, 'binary');
         });
-        
+
         proxy_response.addListener('end', function() {
                 response.end();
         });

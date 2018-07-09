@@ -892,6 +892,7 @@ public final class Des
         pOut[ i++ ] = ( byte ) ( ulR >> 8 );
         pOut[ i ] = ( byte ) ulR;
 
+        return;
     }
 
     protected int IsKeySet()
@@ -974,6 +975,7 @@ public final class Des
         Halves[ 1 ] = Right;
         Halves[ 0 ] = Left;
 
+        return;
     }
 
     /*
@@ -1099,5 +1101,6 @@ public final class Des
             }
         }
 
+        return;
     }
 }

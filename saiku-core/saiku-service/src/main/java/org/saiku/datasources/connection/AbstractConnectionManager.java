@@ -141,12 +141,7 @@ public abstract class AbstractConnectionManager implements IConnectionManager, S
   public void refreshAllConnections() {
     ds.load();
     for ( String name : ds.getDatasources().keySet() ) {
-      try {
-        refreshConnection( name );
-      } catch (Exception ex) {
-        // Display the exception but continue to load the connections
-        ex.printStackTrace();
-      }
+      refreshConnection( name );
     }
   }
 

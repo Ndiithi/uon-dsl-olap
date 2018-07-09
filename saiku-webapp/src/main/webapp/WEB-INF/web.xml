@@ -63,20 +63,10 @@
 		<session-timeout>60</session-timeout>
 	</session-config>
 
-    <filter>
-        <filter-name>org.springframework.security.filterChainProxy</filter-name>
-        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>org.springframework.security.filterChainProxy</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
-
     <!-- BEGIN - Hazelcast Filter -->
-    <!--
-    <filter>
+<!--    <filter>
         <filter-name>hazelcast-filter</filter-name>
-        <filter-class>com.hazelcast.web.WebFilter</filter-class>
+        &lt;!&ndash;        <filter-class>com.hazelcast.web.WebFilter</filter-class>&ndash;&gt;
         <filter-class>com.hazelcast.web.spring.SpringAwareWebFilter</filter-class>
 
         <init-param>
@@ -109,6 +99,7 @@
             <param-value>true</param-value>
         </init-param>
 
+
         <init-param>
             <param-name>use-client</param-name>
             <param-value>true</param-value>
@@ -118,21 +109,25 @@
             <param-name>shutdown-on-destroy</param-name>
             <param-value>true</param-value>
         </init-param>
-    </filter>
+    </filter>-->
 
-    <filter-mapping>
-        <filter-name>hazelcast-filter</filter-name>
-        <url-pattern>/*</url-pattern>
-        <dispatcher>FORWARD</dispatcher>
-        <dispatcher>INCLUDE</dispatcher>
-        <dispatcher>REQUEST</dispatcher>
-    </filter-mapping>
+
+    <!--<filter-mapping>
+            <filter-name>hazelcast-filter</filter-name>
+            <url-pattern>/*</url-pattern>
+            <dispatcher>FORWARD</dispatcher>
+            <dispatcher>INCLUDE</dispatcher>
+            <dispatcher>REQUEST</dispatcher>
+        </filter-mapping>
     -->
-    <!-- END - Hazelcast Filter -->
 
-    <!-- BEGIN - Saiku Orbis SSO Filter Definition --> 
-    <!--
+    <!-- BEGIN - Filter Definition --> 
     <filter>
+        <filter-name>org.springframework.security.filterChainProxy</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <!-- The above filter is for Orbis / Hazelcast token based authentication -->
+    <!-- <filter>
         <filter-name>hazelcastAuthFilter</filter-name>
         <filter-class>org.saiku.web.service.HazelcastAuthFilter</filter-class>
         <init-param>
@@ -147,9 +142,13 @@
             <param-name>baseWorkspaceDir</param-name>
             <param-value>../../repository/data</param-value>
         </init-param>
-    </filter>
+    </filter>-->
 
-    <filter-mapping>
+    <!-- END - Filter Definition -->
+
+    <!-- BEGIN - Filter Mapping -->
+    <!-- The above filter mapping is for Orbis / Hazelcast token based authentication -->
+    <!--<filter-mapping>
         <filter-name>hazelcast-filter</filter-name>
         <url-pattern>/*</url-pattern>
         <dispatcher>FORWARD</dispatcher>
@@ -159,8 +158,11 @@
     <filter-mapping>
         <filter-name>hazelcastAuthFilter</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping> 
-    -->
+    </filter-mapping>-->
+    <filter-mapping>
+        <filter-name>org.springframework.security.filterChainProxy</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
     <!-- END - Filter Mapping -->
 
     <listener>
@@ -202,7 +204,7 @@
     <!-- ====================================================================== -->
     <!-- J C R R E M O T I N G S E R V L E T -->
     <!-- ====================================================================== -->
-   <!-- <servlet>
+    <!-- <servlet>
         <servlet-name>JCRWebdavServer</servlet-name>
         <description>
             The servlet used to remote JCR calls over HTTP.
@@ -240,7 +242,7 @@
         <servlet-name>Webdav</servlet-name>
         <url-pattern>/repository/*</url-pattern>
     </servlet-mapping>
-  <!--  <servlet-mapping>
+    <!--  <servlet-mapping>
         <servlet-name>JCRWebdavServer</servlet-name>
         <url-pattern>/server/*</url-pattern>
     </servlet-mapping>-->
@@ -269,21 +271,21 @@
         <url-pattern>/console/*</url-pattern>
     </servlet-mapping>
 
-	<servlet>
-    	<servlet-name>jersey2</servlet-name>
-    	<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
-    	<init-param>
-      		<param-name>com.sun.jersey.config.property.packages</param-name>
-      		<param-value>org.saiku.web;com.fasterxml.jackson.jaxrs.json</param-value>
-    	</init-param>
+    <servlet>
+        <servlet-name>jersey2</servlet-name>
+        <servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
+        <init-param>
+            <param-name>com.sun.jersey.config.property.packages</param-name>
+            <param-value>org.saiku.web;com.fasterxml.jackson.jaxrs.json</param-value>
+        </init-param>
         <init-param>
             <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
             <param-value>true</param-value>
         </init-param>
-    	<!--<init-param>
-      		<param-name>com.sun.jersey.spi.container.ContainerRequestFilters</param-name>
-      		<param-value>com.sun.jersey.api.container.filter.PostReplaceFilter</param-value>
-    	</init-param>-->
+        <!--<init-param>
+                <param-name>com.sun.jersey.spi.container.ContainerRequestFilters</param-name>
+                <param-value>com.sun.jersey.api.container.filter.PostReplaceFilter</param-value>
+        </init-param>-->
         <init-param>
             <param-name>com.sun.jersey.config.feature.Trace</param-name>
             <param-value>true</param-value>
@@ -292,23 +294,23 @@
             <param-name>jaxrs.providers</param-name>
             <param-value>org.saiku.web.rest.SerializableProvider</param-value>
         </init-param>
-<!-- 		<init-param>
-		    <param-name>com.sun.jersey.spi.container.ContainerResponseFilters</param-name>
-		    <param-value>com.sun.jersey.api.container.filter.GZIPContentEncodingFilter</param-value>
-		</init-param>  -->
+        <!-- 		<init-param>
+            <param-name>com.sun.jersey.spi.container.ContainerResponseFilters</param-name>
+            <param-value>com.sun.jersey.api.container.filter.GZIPContentEncodingFilter</param-value>
+        </init-param>  -->
 
-    	<load-on-startup>1</load-on-startup>
-  	</servlet>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
 
-	  <servlet-mapping>
-	    <servlet-name>jersey2</servlet-name>
-	    <url-pattern>/rest/*</url-pattern>
-	  </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>jersey2</servlet-name>
+        <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>
 
-  <!--<servlet-mapping>
-    <servlet-name>jersey2</servlet-name>
-    <url-pattern>/rest/saiku/session</url-pattern>
-  </servlet-mapping>-->
+    <!--<servlet-mapping>
+      <servlet-name>jersey2</servlet-name>
+      <url-pattern>/rest/saiku/session</url-pattern>
+    </servlet-mapping>-->
     <servlet>
         <servlet-name>xmla</servlet-name>
         <servlet-class>org.saiku.olap.util.SaikuXmlaServlet</servlet-class>

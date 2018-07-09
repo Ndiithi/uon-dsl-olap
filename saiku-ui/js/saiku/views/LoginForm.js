@@ -28,7 +28,7 @@ var LoginForm = Modal.extend({
             '<input type="password" id="password" name="password">' +
             '<% if (Settings.EVALUATION_PANEL_LOGIN) { %>' +
                 '<div class="eval-panel">' +
-                    '<a href="#eval_login" class="i18n" id="eval-login">Evaluation Login</a>' +
+                    '<a href="#eval_login" class="i18n" id="eval-login">Eval-Login</a>' +
                     '<div class="eval-panel-user clearfix" hidden>' +
                         '<ul>' +
                             '<li class="i18n">Administrator</li>' +

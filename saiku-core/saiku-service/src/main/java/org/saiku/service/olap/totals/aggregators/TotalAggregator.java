@@ -21,7 +21,7 @@ public abstract class TotalAggregator {
 
     tmp.put( "not", new TotalAggregatorFactory() {
       public TotalAggregator create() {
-        return null;
+        return new BlankAggregator( null );
       }
     });
 

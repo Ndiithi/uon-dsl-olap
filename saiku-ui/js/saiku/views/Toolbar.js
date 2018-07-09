@@ -49,7 +49,7 @@ var Toolbar = Backbone.View.extend({
         }
         else{
             self.logo = "<h1 id='logo'>"+
-                "<a href='http://www.meteorite.bi/' title='Saiku - Next Generation Open Source Analytics' target='_blank' class='sprite'>Saiku</a>"+
+                "<a href='#' title='DSL kenya - Analytics' target='_blank' class='sprite'>Data Service Layer</a>"+
                 "</h1>";
             self.render();
         }
@@ -144,7 +144,7 @@ var Toolbar = Backbone.View.extend({
      * Force go to the Meteorite BI site
      */
     site: function() {
-        window.open('http://www.meteorite.bi/');
+        //window.open('http://www.meteorite.bi/');
         return false;
     }
 });

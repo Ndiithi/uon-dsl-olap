@@ -52,7 +52,7 @@ public class DataSourceMapper {
 
             String[] loc = location.split(";");
 
-            String[] url = loc[0].split("=", 2);
+            String[] url = loc[0].split("=");
             if (ds.getProperties().getProperty("driver").equals("mondrian.olap4j.MondrianOlap4jDriver")) {
                 String[] cat = loc[1].split("=");
                 String[] drv = loc[2].split("=");
