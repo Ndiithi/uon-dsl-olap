@@ -1,4 +1,4 @@
-### DSL-OLAP
+### DSL-OLAP.
 
 A web based olap platform for DSL. 
 
