@@ -248,25 +248,25 @@
 
 <!-- Templates -->
 <script type="text/x-jquery-tmpl" id="template-toolbar">
+
             <ul>
-                    <li><a id='new_query' href='#new_query' title='New query' class='new_tab i18n sprite'></a></li>
-                    <li class='separator'>&nbsp;</li>
-                    <li><a id='open_query' href='#open_query' title='Open query' class='open_query i18n sprite'></a></li>
+                    <li><a id='new_query' href='#new_query' title='New query' class='new_tab i18n'>New Query</a></li>
+              <!--      <li class='separator'>&nbsp;</li> -->
+                    <li><a id='open_query' href='#open_query' title='Open query' class='open_query i18n'>Open Query</a></li>
                     <% if (!data.buttons) { %>
+              <!--      <li class='separator'>&nbsp;</li> -->
+                <!--    <li class='separator'>&nbsp;</li> -->
                     <li class='separator'>&nbsp;</li>
-                    <li><a id='logout' href='#logout' title='Logout' class='logout i18n sprite'></a></li>
-
+                    <li><a id='help_icon' href='#help' target='_blank' title='Help' class='help i18n'>Help</a></li>
+                    <li ><a id='about' href='#about' title='About' class='about i18n'>About</a></li>
                     <li class='separator'>&nbsp;</li>
-                    <li><a id='about' href='#about' title='About' class='about i18n sprite'></a></li>
-                    <li class='separator'>&nbsp;</li>
-                    <li><a id='help_icon' href='#help' target='_blank' title='Help' class='help i18n sprite'></a></li>
-
-                    <li class='separator'>&nbsp;</li>
+                    <li class="lgout"><a id='logout' href='#logout' title='Logout' class='logout i18n'>Logout</a></li>
+              <!--      <li class='separator'>&nbsp;</li> -->
                     <% } %>
-<!--                    <li><a id='issue_tracker' href='#issue_tracker' title='Issue Tracker' class='bug i18n sprite'></a></li>-->
+              <!--  <li><a id='issue_tracker' href='#issue_tracker' title='Issue Tracker' class='bug i18n'></a></li>-->
             </ul>
-
             <%= data.logo %>
+
         </script>
 
 <script type="text/x-jquery-tmpl" id="template-upgrade">
