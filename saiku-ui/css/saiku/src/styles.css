@@ -125,8 +125,13 @@ textarea, select {
 .sprite, .ui-dialog-titlebar-close,.ui-dialog-titlebar-close button, .ui-dialog-titlebar-close:hover, .dialog_icon {
 	background: url(../../../images/sprite.png) no-repeat;
 }
+#logo{
+	float: left;
+	padding: 7px 10px 7px 10px;
+}
 #logo .header-logo, .dialog_icon{
 	background: url(../../../images/src/kenya-coat-of-arms_32x32.png) no-repeat !important;
+	color: white;
 }
 .truncate {
 	white-space: nowrap;
@@ -200,14 +205,14 @@ textarea, select {
 
 #toolbar {
 	background: #438eb9;
-	/*background: -webkit-gradient(linear, left top, left bottom, from(#EEEEEE), to(#DDDDDD));*/
 	border-bottom: 1px solid #BBB;
-	height: 50px;
+	overflow: auto;
 }
 #toolbar ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 7px 10px 7px 10px;
+	float: right;
 }
 #toolbar ul li {
 	display: inline-block;
@@ -227,10 +232,14 @@ textarea, select {
 	display: block;
 	height: 36px;
 	padding: 4px;
-	width: 36px;
+	font-size: 14px;
+	color: white;
+	font-weight: bold;
 }
 #toolbar ul li a:hover {
-	background-color: #F0F0F0;
+	background-color: white;
+	color: #438eb9;
+	text-decoration: none;
 	border: 1px solid #CCC;
 	padding: 4px;
 	border-radius: 2px;
@@ -273,7 +282,7 @@ textarea, select {
 	text-shadow: 1px 1px 1px #000;
 }
 #toolbar ul li a.admin {
-	background: url(../../../images/src/admin.png) no-repeat center;
+	/* background: url(../../../images/src/admin.png) no-repeat center; */
 }
 #toolbar ul li a.dashboard {
 	background: url(../../../images/src/dashboard.png) no-repeat center;
@@ -289,7 +298,9 @@ textarea, select {
 	text-indent: 40px;
 	color: #a9a9a9;
 }
-
+#logo a:hover {
+	text-decoration: none;
+}
 #logo_override img {
 	float: right;
 	width: 166px;

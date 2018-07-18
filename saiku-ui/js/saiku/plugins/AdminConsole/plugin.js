@@ -1082,11 +1082,13 @@ if(Saiku.session.isAdmin) {
             title: "Admin Console",
             class: "i18n",
 			id: "admin_icon"
-        })
+        }).text("Admin")
         .click(Saiku.AdminConsole.show_admin)
         .addClass('admin');
     var $li = $("<li />").append($link);
-    $(Saiku.toolbar.el).find('ul').append($li).append('<li class="separator">&nbsp;</li>');
+    //$(Saiku.toolbar.el).find('ul').append($li);
+    $($li).insertBefore( $(Saiku.toolbar.el).find('ul li.lgout') );
+    //.append('<li class="separator">&nbsp;</li>');
 }
 });
 Saiku.events.bind('admin:changedriver', function(options){
