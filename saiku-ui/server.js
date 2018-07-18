@@ -39,6 +39,8 @@
  */
 
 // newer versions of node.js use the lower-case argv
+console.log("To start server run ============= node server.js [port] [backend_host] [backend_port] ===================");
+
 var argv = process.ARGV || process.argv;
 
 var http = require('http');
@@ -54,18 +56,19 @@ var backend_path_prefix;
 var auth;
 
 if (argv[2] === 'https') {
-    port = process.env.C9_PORT || parseInt(argv[3], 10) || 8080;
+    port = process.env.C9_PORT || parseInt(argv[3], 10) || 10000;
     backend_host = argv[4] || 'try.meteorite.bi';
     backend_port = parseInt(argv[5], 10) || 80;
     backend_path_prefix = argv[6] || '';
     auth = argv[7] || null;
 }
 else {
-    port = process.env.C9_PORT || parseInt(argv[2], 10) || 8080;
-    backend_host = argv[3] || 'try.meteorite.bi';
-    backend_port = parseInt(argv[4], 10) || 80;
+    port = process.env.C9_PORT || parseInt(argv[2], 10) || 10000;
+    backend_host = argv[3] || 'localhost';
+    backend_port = parseInt(argv[4], 10) || 8080;
     backend_path_prefix = argv[5] || '';
     auth = argv[6] || null;
+    console.log("The host: "+ backend_host + " Port: "+backend_port +" listen on: "+port);
 }
 
 // Load static server
@@ -97,7 +100,6 @@ function get_from_proxy(request, response) {
         method   : request.method,
         headers  : request.headers
     };
-
     console.log(options.method, options.path);
 
     var proxy_request = http.request(options);
@@ -148,10 +150,11 @@ if (argv[2] === 'https') {
 
     https.createServer(options, app).listen(port, function () {
        console.log('Started!');
+
     });
 }
 else {
-    app.listen(port, '0.0.0.0');
+    app.listen(port, '127.0.0.1');
 }
 
 console.log('Connected to "', backend_host, ':', backend_port, '"');
