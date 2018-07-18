@@ -19,7 +19,6 @@
  */
 var Toolbar = Backbone.View.extend({
     tagName: "div",
-
     buttons: false,
 
     events: {
@@ -49,7 +48,7 @@ var Toolbar = Backbone.View.extend({
         }
         else{
             self.logo = "<h1 id='logo'>"+
-                "<a href='#' title='DSL kenya - Analytics' target='_blank' class='sprite'>Data Service Layer</a>"+
+                "<a href='#' title='DSL kenya - Analytics' target='_blank' class='header-logo'>DSL - Analytics</a>"+
                 "</h1>";
             self.render();
         }

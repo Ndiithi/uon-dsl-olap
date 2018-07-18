@@ -125,7 +125,7 @@ textarea, select {
 .sprite, .ui-dialog-titlebar-close,.ui-dialog-titlebar-close button, .ui-dialog-titlebar-close:hover, .dialog_icon {
 	background: url(../../../images/sprite.png) no-repeat;
 }
-#logo .sprite, .dialog_icon{
+#logo .header-logo, .dialog_icon{
 	background: url(../../../images/src/kenya-coat-of-arms_32x32.png) no-repeat !important;
 }
 .truncate {
@@ -199,7 +199,7 @@ textarea, select {
 /** Toolbar */
 
 #toolbar {
-	background: ##438eb9;
+	background: #438eb9;
 	/*background: -webkit-gradient(linear, left top, left bottom, from(#EEEEEE), to(#DDDDDD));*/
 	border-bottom: 1px solid #BBB;
 	height: 50px;

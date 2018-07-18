@@ -76,12 +76,11 @@ var SplashScreen = Backbone.View.extend({
     },
     template: function() {
         var template = $("<div> <div id='splash'> <nav> <ul> <li class='active'><a class='welcome head'" +
-                " href='#'>Welcome</a></li> <li><a class='features head' href='#'>Features</a></li> <li><a" +
-                " class='help head' href='#'>Get Help</a></li> <li class='enterprisetoggle enterprise'><a" +
-                " class='enterprise head'" +
-                " href='#'>Enterprise</a></li> </ul> <h2>Explore Data. Visualise. Act.</h2> </nav> <section" +
-                " class='stabs'> <section style='margin-top:50px;min-height:700px;' id='welcome'> <div" +
-                " style='width:50%;float:left;'> <h1 class='saikulogo'>DSL</h1>" +
+                " href='#'>Welcome</a></li><li><a" +
+                " class='help head' href='#'>Get Help</a></li>" +
+                " </ul> <h2>Explore Data. Visualise.</h2> </nav> <section" +
+                " class='stabs'> <section style='margin-top:150px;min-height:700px;' id='welcome'> <div" +
+                " style='width:50%;float:left;'> <h1 class='saikulogo'></h1>" +
                 " DSL UI provides a web based analytics platform" +
                 "<i class='icon" +
             " icon-remove' style='"+
