@@ -80,7 +80,7 @@ var SplashScreen = Backbone.View.extend({
                 " class='help head' href='#'>Get Help</a></li>" +
                 " </ul> <h2>Explore Data. Visualise.</h2> </nav> <section" +
                 " class='stabs'> <section style='margin-top:150px;min-height:700px;' id='welcome'> <div" +
-                " style='width:50%;float:left;'> <h1 class='saikulogo'></h1>" +
+                " style='width:50%;float:left;margin-top: 7px;'> <h1 class='saikulogo'></h1>" +
                 " DSL UI provides a web based analytics platform" +
                 "<i class='icon" +
             " icon-remove' style='"+
