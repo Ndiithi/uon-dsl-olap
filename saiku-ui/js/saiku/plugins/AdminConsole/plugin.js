@@ -1086,8 +1086,9 @@ if(Saiku.session.isAdmin) {
         .click(Saiku.AdminConsole.show_admin)
         .addClass('admin');
     var $li = $("<li />").append($link);
-    $(Saiku.toolbar.el).find('ul').append($li);
-    //$($li).insertBefore( $(Saiku.toolbar.el).find('ul li.lgout') );
+
+    //$(Saiku.toolbar.el).find('ul').append($li);
+    $($li).insertBefore( $(Saiku.toolbar.el).find('ul li.lgout') );
     //.append('<li class="separator">&nbsp;</li>');
 }
 });
