@@ -270,9 +270,9 @@
         </script>
 
 <script type="text/x-jquery-tmpl" id="template-upgrade">
-            <div class="upgradeheader">
-                You are using Saiku Community Edition, please consider <a target="_blank" href="http://saiku.meteorite.bi/support">purchasing support, or entering a sponsorship agreement with us</a> to support development. <a href="mailto:info@meteorite.bi?subject=Supporting Saiku">info@meteorite.bi</a><span class="close_tab sprite"></span>
-            </div>
+            // <div class="upgradeheader">
+            //     You are using Saiku Community Edition, please consider <a target="_blank" href="http://saiku.meteorite.bi/support">purchasing support, or entering a sponsorship agreement with us</a> to support development. <a href="mailto:info@meteorite.bi?subject=Supporting Saiku">info@meteorite.bi</a><span class="close_tab sprite"></span>
+            // </div>
         </script>
 <script type="text/x-jquery-tmpl" id="template-logincount">
             <div class="upgradeheader">
@@ -451,7 +451,7 @@
 <script type="text/x-jquery-tmpl" id="template-attributes">
 
         <div class="metadata_attribute_container">
-            <h3 class="measure_caption"><span class="i18n">Data</span><a class="button addMeasure i18n" style="display:none;">Add</a></h3>
+            <h3 class="measure_caption"><span class="i18n">Metrics</span><a class="button addMeasure i18n" style="display:none;">Add</a></h3>
             <div class="sidebar_inner measure_tree">
                 <% if (typeof cube != "undefined" && cube && cube.dimensions) { %>
                     <%= _.template($("#template-measures").html(), { measures: cube.measures }) %>
@@ -461,7 +461,7 @@
                 <div class="calculated_measures" style="display:none;"></div>
                 <div class="calculated_members" style="display:none;"></div>
             </div>
-            <h3 class="i18n dimension_header">Include in Display</h3>
+            <h3 class="i18n dimension_header">Filter By:</h3>
             <div class="sidebar_inner dimension_tree">
                 <% if (typeof cube != "undefined" && cube && cube.dimensions) { %>
                     <%=  _.template($("#template-dimensions").html(), { dimensions: cube.dimensions }) %>

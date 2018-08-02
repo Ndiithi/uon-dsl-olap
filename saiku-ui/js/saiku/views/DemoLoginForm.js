@@ -1,4 +1,4 @@
-/*  
+/*
  *   Copyright 2012 OSBI Ltd
  *
  *   Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,7 +13,7 @@
  *   See the License for the specific language governing permissions and
  *   limitations under the License.
  */
- 
+
 /**
  * The login prompt on startup
  */
@@ -23,16 +23,16 @@ var DemoLoginForm = Modal.extend({
         "<label for='email'>Email:</label>" +
         "<input type='text' id='email' name='email' value='' />" +
         "</form>",
-        
+
     buttons: [
         { text: "Start Demo", method: "login" }
     ],
-    
+
     events: {
         'click a': 'call',
         'submit form ' : 'login'
     },
-    
+
     initialize: function(args) {
         _.extend(this, args);
         _.bindAll(this, "adjust");
@@ -44,14 +44,14 @@ var DemoLoginForm = Modal.extend({
         $(this.el).dialog('close');
 
     },
-    
+
     adjust: function() {
         $(this.el).parent().find('.ui-dialog-titlebar-close').hide();
         $(this.el).find("#email").select().focus();
     },
-    
+
     login: function(e) {
-        
+
         var l_username = Settings.USERNAME;
         var l_password = Settings.PASSWORD;
         var email = $(this.el).find("#email").val();
